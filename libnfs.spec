@@ -3,15 +3,15 @@
 %define	devname	%mklibname nfs -d
 
 Name:		libnfs
-Version:	1.3.0
-Release:	%mkrel 1
+Version:	1.5.0
+Release:	1
 Summary:	Client library for accessing NFS shares over a network
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		https://github.com/sahlberg/libnfs
 # git archive --prefix libnfs-1.3.0/ libnfs-1.3.0 | xz > libnfs-1.3.0.tar.xz
-Source:		%{name}-%{version}.tar.xz
+Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.gz
 BuildRequires:	python
 
 %description
@@ -49,11 +49,7 @@ applications that use libnfs.
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
-
-%clean
-%__rm -rf %{buildroot}
 
 %files -n %{libname}
 %doc README
@@ -64,7 +60,3 @@ applications that use libnfs.
 %{_libdir}/*.so
 %{_includedir}/nfsc
 %{_libdir}/pkgconfig/%{name}.pc
-%if %{mdvver} < 201200
-%{_libdir}/*.la
-%endif
-

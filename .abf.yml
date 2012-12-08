@@ -1,2 +1,3 @@
 sources:
-  "libnfs-1.3.0.tar.xz:"	0b8599e4522dc597b3e017b1b566b27df84b2099
+  "libnfs-1.3.0.tar.xz": 0b8599e4522dc597b3e017b1b566b27df84b2099
+  libnfs-1.5.0.tar.gz: 9468e8735673bce8032c3ae60481de9e236b1a37
