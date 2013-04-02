@@ -4,7 +4,7 @@
 
 Name:		libnfs
 Version:	1.5.0
-Release:	1
+Release:	2
 Summary:	Client library for accessing NFS shares over a network
 # examples are GPL but are not packaged
 License:	LGPLv2+
@@ -13,6 +13,7 @@ URL:		https://github.com/sahlberg/libnfs
 # git archive --prefix libnfs-1.3.0/ libnfs-1.3.0 | xz > libnfs-1.3.0.tar.xz
 Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.gz
 BuildRequires:	python
+BuildRequires:	tirpc-devel
 
 %description
 LIBNFS is a client library for accessing NFS shares over a network.
