@@ -2,18 +2,18 @@
 %define	libname	%mklibname nfs %{major}
 %define	devname	%mklibname nfs -d
 
+Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
 Version:	1.5.0
 Release:	2
-Summary:	Client library for accessing NFS shares over a network
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
-URL:		https://github.com/sahlberg/libnfs
+Url:		https://github.com/sahlberg/libnfs
 # git archive --prefix libnfs-1.3.0/ libnfs-1.3.0 | xz > libnfs-1.3.0.tar.xz
 Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.gz
 BuildRequires:	python
-BuildRequires:	tirpc-devel
+BuildRequires:	pkgconfig(libtirpc)
 
 %description
 LIBNFS is a client library for accessing NFS shares over a network.
@@ -36,8 +36,6 @@ Requires:	%{libname} = %{EVRD}
 Provides:	nfs-devel = %{EVRD}
 
 %description -n %{devname}
-LIBNFS is a client library for accessing NFS shares over a network.
-
 This package contains the headers that are needed to develop
 applications that use libnfs.
 
@@ -53,7 +51,6 @@ applications that use libnfs.
 %makeinstall_std
 
 %files -n %{libname}
-%doc README
 %{_libdir}/*.so.%{major}*
 
 %files -n %{devname}
@@ -61,3 +58,4 @@ applications that use libnfs.
 %{_libdir}/*.so
 %{_includedir}/nfsc
 %{_libdir}/pkgconfig/%{name}.pc
+
