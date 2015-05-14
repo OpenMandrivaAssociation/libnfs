@@ -1,4 +1,4 @@
-%define	major	4
+%define	major	8
 %define	libname	%mklibname nfs %{major}
 %define	devname	%mklibname nfs -d
 
@@ -73,7 +73,7 @@ cp nfs://your.server/data/tmp/foo123 \
 
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{name}-%{version}
 
 %build
 ./bootstrap
@@ -99,6 +99,8 @@ install -m 755 ld_nfs.so %{buildroot}%{_libdir}
 
 %files fuse
 %{_sbindir}/fuse_nfs
+%{_bindir}/nfs-ls
+%{_mandir}/man1/nfs-ls.1*
 
 %files preload
 %{_libdir}/ld_nfs.so
