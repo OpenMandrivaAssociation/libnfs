@@ -4,14 +4,13 @@
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	1.9.3
-Release:	4
+Version:	1.9.7
+Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/sahlberg/libnfs
-# git archive --prefix libnfs-1.9.3/ libnfs-1.9.3 | xz -9e > libnfs-1.9.3.tar.xz
-Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.xz
+Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.gz
 BuildRequires:	python
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(fuse)

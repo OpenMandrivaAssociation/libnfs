@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libnfs-1.9.3.tar.xz: b4ac0c1b4fd7691b949148b498d6a6232cfae901
+sources:
+  libnfs-1.9.7.tar.gz: 0da0de1af22309eba5a1a4e9dd769213632fcb53
