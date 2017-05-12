@@ -4,8 +4,8 @@
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	1.9.7
-Release:	2
+Version:	1.11.0
+Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
@@ -22,6 +22,7 @@ LIBNFS is a client library for accessing NFS shares over a network.
 Summary:	Shared library of libnfs
 Group:		System/Libraries
 Provides:	%{name} = %{EVRD}
+Obsoletes:	%{name}-preload < %{EVRD}
 
 %description -n %{libname}
 LIBNFS is a client library for accessing NFS shares over a network.
@@ -39,27 +40,15 @@ Provides:	nfs-devel = %{EVRD}
 This package contains the headers that are needed to develop
 applications that use libnfs.
 
-%package fuse
-Summary:	An NFS implementation based on libnfs and FUSE
+%package utils
+Summary:	Utils for libnfs
 Group:		System/Libraries
 Requires:	%{libname} = %{EVRD}
+Conflicts:	%{name}-fuse < %{EVRD}
 License:	GPLv3
 
-%description fuse
-An NFS implementation based on libnfs and FUSE
-
-%package preload
-Summary:	LD_PRELOADable library for making NFS available
-Group:		System/Libraries
-Requires:	%{libname} = %{EVRD}
-License:	GPLv3
-
-%description preload
-A LD_PRELOADable module that can be used to make
-several standard utilities nfs aware.
-It is still very incomplete but can be used for basic things
-such as cat and cp.
-Patches to add more coverage is welcome.
+%description utils
+Utilities for libnfs.
 
 You can try things like
 LD_NFS_DEBUG=9 \
@@ -79,14 +68,10 @@ cp nfs://your.server/data/tmp/foo123 \
 ./bootstrap
 %configure2_5x --disable-static
 %make
-%__cc %{optflags} -o fuse_nfs examples/fuse_nfs.c -Iinclude -Llib/.libs -lfuse -lnfs
-%__cc %{optflags} -fPIC -shared -o ld_nfs.so examples/ld_nfs.c -Iinclude -Llib/.libs -ldl -lnfs
 
 %install
 %makeinstall_std
 mkdir -p %{buildroot}%{_sbindir}
-install -m 755 fuse_nfs %{buildroot}%{_sbindir}
-install -m 755 ld_nfs.so %{buildroot}%{_libdir}
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
@@ -97,10 +82,11 @@ install -m 755 ld_nfs.so %{buildroot}%{_libdir}
 %{_includedir}/nfsc
 %{_libdir}/pkgconfig/%{name}.pc
 
-%files fuse
-%{_sbindir}/fuse_nfs
+%files utils
 %{_bindir}/nfs-ls
+%{_bindir}/nfs-cat
+%{_bindir}/nfs-cp
+%{_mandir}/man1/nfs-cat.1*
+%{_mandir}/man1/nfs-cp.1*
 %{_mandir}/man1/nfs-ls.1*
 
-%files preload
-%{_libdir}/ld_nfs.so
