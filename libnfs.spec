@@ -4,13 +4,13 @@
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	1.11.0
-Release:	2
+Version:	4.0.0
+Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/sahlberg/libnfs
-Source0:	https://github.com/downloads/sahlberg/libnfs/%{name}-%{version}.tar.gz
+Source0:	https://github.com/sahlberg/libnfs/archive/refs/tags/%{name}-%{name}-%{version}.tar.gz
 BuildRequires:	python
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(fuse)
@@ -66,11 +66,11 @@ cp nfs://your.server/data/tmp/foo123 \
 
 %build
 ./bootstrap
-%configure2_5x --disable-static
-%make
+%configure --disable-static
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 mkdir -p %{buildroot}%{_sbindir}
 
 %files -n %{libname}
