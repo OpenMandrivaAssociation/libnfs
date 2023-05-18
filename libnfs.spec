@@ -86,6 +86,7 @@ mkdir -p %{buildroot}%{_sbindir}
 %{_bindir}/nfs-ls
 %{_bindir}/nfs-cat
 %{_bindir}/nfs-cp
+%{_bindir}/nfs-stat   
 %{_mandir}/man1/nfs-cat.1*
 %{_mandir}/man1/nfs-cp.1*
 %{_mandir}/man1/nfs-ls.1*
