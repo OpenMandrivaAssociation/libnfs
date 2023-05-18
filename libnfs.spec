@@ -1,11 +1,11 @@
-%define	major	13
+%define	major	14
 %define	libname	%mklibname nfs %{major}
 %define	devname	%mklibname nfs -d
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	4.0.0
-Release:	2
+Version:	5.0.2
+Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
 Group:		System/Libraries
@@ -86,6 +86,7 @@ mkdir -p %{buildroot}%{_sbindir}
 %{_bindir}/nfs-ls
 %{_bindir}/nfs-cat
 %{_bindir}/nfs-cp
+%{_bindir}/nfs-stat   
 %{_mandir}/man1/nfs-cat.1*
 %{_mandir}/man1/nfs-cp.1*
 %{_mandir}/man1/nfs-ls.1*
