@@ -1,4 +1,4 @@
-%define	major	13
+%define	major	14
 %define	libname	%mklibname nfs %{major}
 %define	devname	%mklibname nfs -d
 
