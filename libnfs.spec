@@ -4,7 +4,7 @@
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	5.0.2
+Version:	5.0.3
 Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
