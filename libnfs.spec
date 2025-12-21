@@ -11,6 +11,11 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://github.com/sahlberg/libnfs
 Source0:	https://github.com/sahlberg/libnfs/archive/refs/tags/%{name}-%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	python
 BuildRequires:	pkgconfig(libtirpc)
 BuildRequires:	pkgconfig(fuse)
