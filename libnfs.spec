@@ -4,7 +4,7 @@
 
 Summary:	Client library for accessing NFS shares over a network
 Name:		libnfs
-Version:	5.0.3
+Version:	6.0.2
 Release:	1
 # examples are GPL but are not packaged
 License:	LGPLv2+
@@ -67,7 +67,7 @@ cp nfs://your.server/data/tmp/foo123 \
 
 
 %prep
-%setup -q -n %{name}-%{name}-%{version}
+%setup -q -n libnfs-libnfs-6.0.2
 
 %build
 ./bootstrap
